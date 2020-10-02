@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from './COMPONENT/Accordion';
+import Search from './COMPONENT/Search';
 
 const items = [
 	{
@@ -19,7 +20,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Accordion items={items} />
+				<Search />
 			</div>
 		);
 	}
