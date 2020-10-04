@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Accordion from './COMPONENT/Accordion';
 import Search from './COMPONENT/Search';
+import Dropdown from './COMPONENT/Dropdown';
 
 const items = [
 	{
@@ -16,14 +17,28 @@ const items = [
 		content: 'on utilise react pouur cree des composant'
 	}
 ];
-class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<Search />
-			</div>
-		);
-	}
-}
 
-export default App;
+const options = [
+	{
+		label: ' the color is red ',
+		value: 'red'
+	},
+	{
+		label: 'the color is Green ',
+		value: 'blue'
+	},
+	{
+		label: ' the color is blue ',
+		value: 'blue'
+	}
+];
+export default () => {
+	const [ selected, setSelected ] = useState(options[0]);
+	const [ showDropdown, setShowDropdown ] = useState(true);
+	return (
+		<div>
+			<button onClick={() => setShowDropdown(!showDropdown)}> toggle dropdown</button>
+			{showDropdown ? <Dropdown selected={selected} options={options} onSelectedChange={setSelected} /> : null}
+		</div>
+	);
+};
